@@ -2,15 +2,16 @@
 {
     public class Logger
     {
-        public static bool RequestConfirmation(string message, bool arrow = true, bool newLine = false, bool showYN = true)
+        public static bool RequestConfirmation(string message, bool arrow = true, bool newLine = false,
+            bool showYn = true)
         {
-            string answer = "";
+            string? answer;
 
-            while (answer != "y" && answer != "n")
+            do
             {
                 DisplayInConsole("REQUEST", ConsoleColor.DarkMagenta, message, false);
 
-                if (showYN)
+                if (showYn)
                 {
                     Console.Write(" (y/n)");
                 }
@@ -30,7 +31,7 @@
                 {
                     ShowError("The answer must be between \"y\" (yes) or \"n\" (no).");
                 }
-            }
+            } while (answer != "y" && answer != "n");
 
             return answer == "y";
         }
@@ -48,7 +49,8 @@
                 Console.WriteLine();
             }
 
-            return Console.ReadLine();
+            var requestInfo = Console.ReadLine();
+            return requestInfo ?? "";
         }
 
         public static void ShowError(string message, bool newLine = true)
