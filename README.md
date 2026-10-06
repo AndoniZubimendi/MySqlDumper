@@ -48,6 +48,6 @@ Login=my_user
 Password=my_pass
 Database=my_database
 OutputDirectory=outputdir
-;Tables=table1,table2
+TablesToDump=table1,table2
 ;SkipErrors=false
 ```

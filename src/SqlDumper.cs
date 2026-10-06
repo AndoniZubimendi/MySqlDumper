@@ -36,8 +36,10 @@ namespace MySqlDumper
                 $"Connection Timeout={Timeout};default command timeout={Timeout}"
             );
             conn.Open();
-
+            
             var tables = _tablesToDump;
+
+            Console.WriteLine("Tables to dump: " + string.Join(", ", tables));
             if (_tablesToDump.Count == 0)
             {
                 var dbTables = conn.GetSchema("Tables");
